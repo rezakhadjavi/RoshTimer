@@ -13,13 +13,6 @@ $(document).ready(function() {
 		roshDMG = 65,
 		roshARMOR = 3;
 
-	var init = function() {
-		whoKilledNode.hide();
-		currentTimeNode.addClass('negative');
-	};
-
-	init();
-
 	function globalTimeUp() {
 		isNegativeTime = false;
 		currentTimeNode.countdown('destroy');
@@ -65,7 +58,7 @@ $(document).ready(function() {
 
 	function updateRoshStats(periods) {
 		var minutes = Number(periods[5]);
-		if (minutes >= 5 && minutes % 5 === 0 && minutes <= 45) {
+		if (minutes <= 45 && minutes >= 5 && minutes % 5 === 0) {
 			roshHP += 500;
 			roshDMG += 10;
 			roshARMOR += 0.5;
@@ -157,6 +150,7 @@ $(document).ready(function() {
 
 		$('.roshTable tbody tr').remove();
 
-		init();
+		whoKilledNode.hide();
+		currentTimeNode.addClass('negative');
 	});
 });
