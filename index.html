@@ -11,22 +11,42 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="landing"><button class="startGame">Start Game</button></div>
+
+        <!-- Landing Page -->
+        <div class="landing">
+            <button class="startGame">Start Game</button>
+        </div>
+
+        <!-- Displays the Actual Game -->
         <div class="roshTimer" style="display:none">
-            <div class="currentTime"></div>
+            <div class="header">
+                <div class="logo"></div>
+                <div class="currentTime"></div>
+                <div class="menu"></div>
+                <ul class="dropdown" style="display:none">
+                    <li> New Game  </li>
+                    <li> About </li>
+                </ul>
+            </div>
+            <div class="stats">
+                <p>HP:<span class=".roshHP">7500</span> DMG:<span class=".roshDMG">65</span> Armor:<span class=".roshARMOR">3</span></p>
+            </div>
+            
             <div class="main">
+                
+                
+                <p class="roshCountdown">10:00</p>
                 <div class="whoKilled">
+                    <p>Who Killed Roshan?</p>
                     <button class="radiant">Radiant</button>
                     <span> - OR - </span>
                     <button class="dire">Dire</button>
                 </div>
-                <button class="btnRoshanDead">Roshan is dead</button>
-                <p class="roshCountdown">10:00</p>
-                <button class="pause">Pause</button>
-            </div>
-            <div class="roshTable">
+                <div class="btnRoshanDead">Roshan is dead</div>
+
+                <div class="roshTable">
                 <table>
-                    <caption>Roshan Deaths</caption>
+                    <caption>Roshan Death Count</caption>
                     <thead>
                         <th>#</th>
                         <th>Time</th>
@@ -36,9 +56,16 @@
                     <tbody>
                     </tbody>
                 </table>
+                </div>
+            
+                <button class="newGame">New Game</button>
+                
             </div>
-            <p>HP:<span class=".roshHP">7500</span> DMG:<span class=".roshDMG">65</span> Armor:<span class=".roshARMOR">3</span></p>
-            <button class="newGame">New Game</button>
+           
+
+            <div class="footer">
+                <div class="pauseToggle pause"></div>
+            </div>
         </div>
 
         <script src="js/vendor/jquery-1.9.1.min.js"></script>

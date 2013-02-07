@@ -68,16 +68,16 @@ $(document).ready(function() {
 		$('.roshTable tbody').append(row);
 	});
 
-	$('.pause').click(function(){
+	$('.pauseToggle').click(function(){
 		if (isPaused) {
 			isPaused = false;
-			$(this).text('Pause');
+			$(this).removeClass('resume').addClass('pause');
 			currentTimeNode.countdown('resume');
 			roshTimeNode.countdown('resume');
 			roshIsDeadNode.removeAttr('disabled');
 		} else {
 			isPaused = true;
-			$(this).text('Resume');
+			$(this).removeClass('pause').addClass('resume');
 			currentTimeNode.countdown('pause');
 			roshTimeNode.countdown('pause');
 			roshIsDeadNode.attr('disabled', 'disabled');
@@ -109,7 +109,7 @@ $(document).ready(function() {
 		$('.roshTimer').hide();
 		$('.landing').show();
 
-		$('.pause').text("Pause");
+		$('.pauseToggle').removeClass('resume').addClass('pause');
 
 		currentTimeNode.countdown('resume');
 		roshTimeNode.countdown('resume');

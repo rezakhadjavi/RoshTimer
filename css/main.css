@@ -1,7 +1,10 @@
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
-
+@font-face {
+    font-family: 'RussoOne';
+    src: url('RussoOne-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
 html,
 button,
 input,
@@ -13,6 +16,7 @@ textarea {
 body {
     font-size: 1em;
     line-height: 1.4;
+    background: #eee;
 }
 
 ::-moz-selection {
@@ -62,12 +66,175 @@ textarea {
 .negative:before {
     content: '-';
 }
+.header{
+    background: #354143;
+    height: 55px;
+    width: 100%;
+    position: relative;
+    -webkit-box-shadow: 0 0 0 0 white, 0 2px 2px black;
+   -moz-box-shadow: 0 0 0 0 white, 0 2px 2px black;
+        box-shadow: 0 0 0 0 white, 0 2px 2px black;
+}
+.header h1{
+    margin: 0;
+}
 
+.logo{
+    background: url("../img/logo.png");
+    background-size: contain;
+    height: 65px;
+    width: 65px;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+.currentTime{
+    text-align: center;
+    padding-top: 2px;
+}
+.currentTime span{
+    font-family: 'RussoOne';
+    font-size: 2.5em;
+    color: #fff;
+}
+.menu{
+  position: absolute;
+  background: url("../img/lines.png") no-repeat scroll 50% 50% / 30px 25px  transparent;
+  height: 55px;
+  width: 70px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  border-left: 1px solid #F8F8F8;
+}
+.header ul{
+    background: #f3f3f3;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 56px;
+    -webkit-box-shadow: 0px 0px 5px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 0px 5px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 0px 5px rgba(50, 50, 50, 0.75);
+    border-radius: 1px;
+    padding: 0;
+}
+.header li{
+    list-style : none;
+    padding: 8px 67px 8px 11px;
+    border-bottom: 1px solid #ccc;
+}
 
+.stats{
+    background: #d2d2d2;
+}
+.stats p{
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
 
-
-
-
+}
+.footer{
+    background: #354143;
+    height: 45px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.pauseToggle{
+    height: 45px;
+    width: 65px;
+    position: absolute;
+    right: 0;
+    border-left: 1px solid #f8f8f8;
+    cursor: pointer;
+}
+.pause{
+    background:url("../img/pause.png") no-repeat scroll 50% 50% / 32px 35px  transparent;
+}
+.resume{
+    background:url("../img/play.png") no-repeat scroll 50% 50% / 32px 35px  transparent;
+}
+.roshCountdown{
+    font-family: 'RussoOne';
+    font-size: 5em;
+    background: #000;
+    margin: 15px 15px 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 30px 30px 0 0;
+}
+.btnRoshanDead{
+   background: #009fb0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #009fb0 0%, #008399 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#009fb0), color-stop(100%,#008399)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #009fb0 0%,#008399 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #009fb0 0%,#008399 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #009fb0 0%,#008399 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #009fb0 0%,#008399 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009fb0', endColorstr='#008399',GradientType=0 ); /* IE6-9 */
+    margin: 5px 15px 15px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.btnRoshanDead:hover, .btnRoshanDead:active{
+    background: #f59127; /* Old browsers */
+    background: -moz-linear-gradient(top, #f59127 0%, #f47720 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f59127), color-stop(100%,#f47720)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f59127 0%,#f47720 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f59127 0%,#f47720 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f59127 0%,#f47720 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #f59127 0%,#f47720 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f59127', endColorstr='#f47720',GradientType=0 ); /* IE6-9 */
+}
+.btnRoshanDead.disabled{
+    opacity: 0.3;
+}
+.whoKilled{
+    margin: 0 15px 15px;
+    padding: 10px;
+    text-align: center;
+    background: #ccc;
+}
+.whoKilled p{
+    margin: 3px;
+    font-size: 1.3em;
+}
+.whoKilled button{
+    padding: 5px 40px;
+}
+.roshTable{
+    margin: 15px;
+}
+table caption{
+    background: none repeat scroll 0 0 #D2D2D2;
+    font-size: 1.3em;
+    padding: 4px;
+}
+.roshTable table{
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #333;
+}
+.roshTable thead{
+    background: #000;
+    color: #fff;
+}
+.roshTable th{
+    border-left: 1px solid #fff;
+}
+.roshTable th:first-child{
+    border-left: none;
+}
+.roshTable tbody tr:nth-child(odd){
+    background: #fff;
+}
 
 
 
