@@ -78,6 +78,10 @@ textarea {
 .rosh-icon {
     margin: 131px 0 5px;
 }
+.rosh-title{
+    display: block;
+    margin: 0 auto;
+}
 .startGame{
     background: #009fb0; /* Old browsers */
     background: -moz-linear-gradient(top,  #009fb0 0%, #008399 100%); /* FF3.6+ */
@@ -127,12 +131,12 @@ textarea {
     text-align: center;
     padding-top: 2px;
 }
-.currentTime span{
+.currentTime span {
     font-family: 'RussoOne';
     font-size: 2.5em;
     color: #fff;
 }
-.menu{
+.menu {
   position: absolute;
   background: url("../img/lines.png") no-repeat scroll 50% 50% / 30px 25px  transparent;
   height: 55px;
@@ -142,7 +146,7 @@ textarea {
   cursor: pointer;
   border-left: 1px solid #F8F8F8;
 }
-.header ul{
+.header ul {
     background: #f3f3f3;
     margin: 0;
     position: absolute;
@@ -153,15 +157,29 @@ textarea {
     box-shadow:         0 0 5px rgba(50, 50, 50, 0.75);
     border-radius: 1px;
     padding: 0;
+    
 }
-.header li{
+.dropdown{
+    -moz-transition: 3s ease-in;
+}
+
+.header li {
     list-style : none;
     padding: 8px 67px 8px 11px;
     border-bottom: 1px solid #ccc;
+     -moz-transition: 0.2s ease-in;
+     -webkit-transition: 0.2s ease-in;
+     transition: 0.2s ease-in;
 }
 .header li:hover, .dropdown li:active{
     background: #ccc;
     cursor: pointer;
+     -moz-transition: 0.2s ease-in;
+     -webkit-transition: 0.2s ease-in;
+     transition: 0.2s ease-in;
+}
+.main{
+    padding-bottom: 45px;
 }
 
 .stats{
@@ -178,24 +196,30 @@ textarea {
 }
 .footer{
     background: #354143;
-    height: 45px;
+    height: 75px;
     width: 100%;
     position: fixed;
     bottom: 0;
 }
 .pauseToggle{
-    height: 45px;
-    width: 65px;
+    height: 75px;
+    width: 100%;
     position: absolute;
     right: 0;
-    border-left: 1px solid #f8f8f8;
     cursor: pointer;
 }
 .pause{
-    background:url("../img/pause.png") no-repeat scroll 50% 50% / 32px 35px  transparent;
+    background:url("../img/pause.png") no-repeat scroll 50% 50% / 185px 35px  transparent;
+    -moz-transition: background 0.3s ease-in;
+    -webkit-transition: background 0.3s ease-in
+    transition: background 0.3s ease-in
 }
 .resume{
-    background:url("../img/play.png") no-repeat scroll 50% 50% / 32px 35px  transparent;
+    background:url("../img/play.png") no-repeat scroll 50% 50% / 210px 35px  transparent;
+     -moz-transition: background 0.3s ease-in;
+    -webkit-transition: background 0.3s ease-in
+    transition: background 0.3s ease-in
+
 }
 .roshCountdown{
     font-family: 'RussoOne';
@@ -243,6 +267,14 @@ textarea {
     font-size: 1.3em;
 }
 .whoKilled button{
+    background: #009fb0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #009fb0 0%, #008399 100%); /* FF3.6+ */
+    background: -webkit-linear-gradient(top,  #009fb0 0%,#008399 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #009fb0 0%,#008399 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #009fb0 0%,#008399 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #009fb0 0%,#008399 100%); /* W3C */
+    color: #fff;
+    border: none;
     padding: 5px;
     width: 95px;
 }
@@ -261,7 +293,8 @@ textarea {
 table caption{
     background: none repeat scroll 0 0 #D2D2D2;
     font-size: 1.3em;
-    padding: 4px;
+    padding: 4px 0;
+    width: 100%
 }
 .roshTable table{
     padding: 10px;
@@ -282,6 +315,13 @@ table caption{
 .roshTable tbody tr:nth-child(odd){
     background: #fff;
 }
+.roshTable td {
+    border-left: 1px solid #CCCCCC;
+}
+.roshTable td:first-child {
+    border-left: none;
+}
+
 
 .blink { 
     -moz-animation:mymove 1s ease infinite;
