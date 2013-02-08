@@ -67,9 +67,6 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.negative:before {
-    content: '-';
-}
 .landing{
     height: 100%;
     background: none repeat scroll 0 0 #354143;
@@ -290,11 +287,12 @@ textarea {
 .roshTable{
     margin: 15px;
 }
-table caption{
+.tableTitle{
     background: none repeat scroll 0 0 #D2D2D2;
     font-size: 1.3em;
     padding: 4px 0;
-    width: 100%
+    width: 100%;
+    text-align: center;
 }
 .roshTable table{
     padding: 10px;
