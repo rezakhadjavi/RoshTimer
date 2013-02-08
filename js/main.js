@@ -8,7 +8,8 @@ $(document).ready(function() {
 
 	var isNegativeTime = true,
 		killCounter = 0,
-		isPaused = false;
+		isPaused = false,
+		isCountingDown = false;
 
 	var roshHP = 7500,
 		roshDMG = 65,
@@ -41,13 +42,14 @@ $(document).ready(function() {
 
 	function roshRespawn() {
 		whoKilledNode.hide();
-		roshIsDeadNode.show();
+		roshIsDeadNode.show().removeClass('disabled');
 		roshTimeNode.countdown('destroy');
 		roshTimeNode.text("10:00");
 		roshTimeNode.addClass("blink");
 		setTimeout(function(){
 			roshTimeNode.removeClass("blink");
 		}, 5000);
+		isCountingDown = false;
 	}
 
 	function instantiateStatsTimer() {
@@ -73,22 +75,25 @@ $(document).ready(function() {
 		}
 	}
 
-	roshIsDeadNode.click(function(){
-		var row, currentTime;
-		killCounter += 1;
-		$(this).hide();
-		whoKilledNode.show();
-		roshTimeNode.countdown({
-			until: '10m',
-			compact: true,
-			format: 'MS',
-			onExpiry: roshRespawn,
-			description: ''
-		});
-		roshTimeNode.removeClass("blink");
-		currentTime = isNegativeTime ? "-" + currentTimeNode.text() : currentTimeNode.text();
-		row = "<tr><td>" + killCounter + "</td><td>" + currentTime + "</td><td class='team_" + killCounter + "'></td><td>" + roshHP + "</td></tr>";
-		$('.roshTable tbody').append(row);
+	$('.btnRoshanDead, .roshCountdown').click(function(){
+		if (!isCountingDown) {
+			var row, currentTime;
+			killCounter += 1;
+			$(roshIsDeadNode).hide();
+			whoKilledNode.show();
+			roshTimeNode.countdown({
+				until: '10m',
+				compact: true,
+				format: 'MS',
+				onExpiry: roshRespawn,
+				description: ''
+			});
+			roshTimeNode.removeClass("blink");
+			currentTime = isNegativeTime ? "-" + currentTimeNode.text() : currentTimeNode.text();
+			row = "<tr><td>" + killCounter + "</td><td>" + currentTime + "</td><td class='team_" + killCounter + "'></td><td>" + roshHP + "</td></tr>";
+			$('.roshTable tbody').append(row);
+			isCountingDown = true;
+		}
 	});
 
 	$('.pauseToggle').click(function(){
@@ -111,7 +116,7 @@ $(document).ready(function() {
 	$('.whoKilled button').click(function(){
 		var isRadiant = $(this).hasClass('radiant');
 		whoKilledNode.hide();
-
+		roshIsDeadNode.show().addClass('disabled');
 		if (isRadiant) {
 			$('.team_' + killCounter).text('Radiant');
 		} else {
@@ -121,11 +126,15 @@ $(document).ready(function() {
 
 	$('.startGame').click(function(){
 		$(this).parent().hide();
-		$('.roshTimer').show();
+		$('.roshTimer').animate({
+			width: 'toggle'
+		}, 100, 'linear', function() {
+			// Animation complete.
+		});
 		globalTimeDown();
 	});
 
-	$('.main, .footer').click(function(e){
+	$('body').click(function(e){
 		if (dropdownNode.is(':visible')) {
 			dropdownNode.hide();
 			e.stopPropagation();
@@ -133,11 +142,13 @@ $(document).ready(function() {
 	});
 
 	$('.menu').click(function(){
-		if (dropdownNode.is(':visible')) {
-			dropdownNode.hide();
-		} else {
-			dropdownNode.show();
-		}
+		setTimeout(function(){
+			if (dropdownNode.is(':visible')) {
+				dropdownNode.hide();
+			} else {
+				dropdownNode.show();
+			}
+		}, 50);
 	});
 
 	$('.newGame').click(function(){
@@ -147,10 +158,15 @@ $(document).ready(function() {
 		roshHP = 7500;
 		roshDMG = 65;
 		roshARMOR = 3;
+		isCountingDown = false;
 
 		$('.roshTimer').hide();
 		dropdownNode.hide();
-		$('.landing').show();
+		$('.landing').animate({
+			width: 'toggle'
+		}, 350, 'linear', function() {
+			// Animation complete.
+		});
 
 		$('.roshHP').text(roshHP);
 		$('.roshDMG').text(roshDMG);
@@ -165,8 +181,7 @@ $(document).ready(function() {
 		roshTimeNode.countdown('destroy');
 		roshStatsTimeNode.countdown('destroy');
 
-		roshIsDeadNode.removeAttr('disabled');
-		roshIsDeadNode.show();
+		roshIsDeadNode.show().removeClass('disabled');
 		roshTimeNode.text("10:00");
 
 		$('.roshTable tbody tr').remove();
