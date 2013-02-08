@@ -11,37 +11,56 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="landing"><button class="startGame">Start Game</button></div>
+        <!-- Landing Page -->
+        <div class="landing">
+            <button class="startGame">Start Game</button>
+        </div>
+
+        <!-- Displays the Actual Game -->
         <div class="roshTimer" style="display:none">
-            <div class="currentTime negative"></div>
+            <!-- Header -->
+            <div class="header">
+                <div class="logo"></div>
+                <div class="currentTime"></div>
+                <div class="menu"></div>
+                <ul class="dropdown" style="display:none">
+                    <li class="newGame">New Game</li>
+                    <li>About</li>
+                </ul>
+            </div>
+            <div class="stats">
+                <p>HP:<span class="roshHP">7500</span> DMG:<span class="roshDMG">65</span> Armor:<span class="roshARMOR">3</span></p>
+            </div>
+            <!-- Main Container -->
             <div class="main">
-                <div class="whoKilled" style="display:none;">
+                <p class="roshCountdown">10:00</p>
+                <div class="whoKilled" style="display: none">
+                    <p>Who Killed Roshan?</p>
                     <button class="radiant">Radiant</button>
                     <span> - OR - </span>
                     <button class="dire">Dire</button>
                 </div>
-                <button class="btnRoshanDead">Roshan is dead</button>
-                <p class="roshCountdown">10:00</p>
-                <button class="pause">Pause</button>
+                <div class="btnRoshanDead">ROSHAN IS DEAD</div>
+
+                <div class="roshTable">
+                    <table>
+                        <caption>Roshan Death Count</caption>
+                        <thead>
+                            <th>#</th>
+                            <th>Time</th>
+                            <th>Killer</th>
+                            <th>Rosh HP</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="roshTable">
-                <table>
-                    <caption>Roshan Deaths</caption>
-                    <thead>
-                        <th>#</th>
-                        <th>Time</th>
-                        <th>Killer</th>
-                        <th>Rosh HP</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="roshStats">
+           <!-- Footer -->
+            <div class="footer">
+                <div class="pauseToggle pause"></div>
                 <div class="statsTimer" style="display:none"></div>
-                <p>HP:<span class="roshHP">7500</span> DMG:<span class="roshDMG">65</span> Armor:<span class="roshARMOR">3</span></p>
             </div>
-            <button class="newGame">New Game</button>
         </div>
 
         <script src="js/vendor/jquery-1.9.1.min.js"></script>
