@@ -76,7 +76,7 @@ $(document).ready(function() {
 	}
 
 	$('.btnRoshanDead, .roshCountdown').click(function(){
-		if (!isCountingDown) {
+		if (!isCountingDown && !isPaused) {
 			var row, currentTime;
 			killCounter += 1;
 			$(roshIsDeadNode).hide();
@@ -103,6 +103,8 @@ $(document).ready(function() {
 			currentTimeNode.countdown('resume');
 			roshTimeNode.countdown('resume');
 			roshStatsTimeNode.countdown('resume');
+			if (!isCountingDown)
+				roshIsDeadNode.removeClass("disabled");
 		} else {
 			isPaused = true;
 			$(this).removeClass('pause').addClass('resume');
@@ -110,6 +112,7 @@ $(document).ready(function() {
 			roshTimeNode.countdown('pause');
 			roshStatsTimeNode.countdown('pause');
 			roshTimeNode.removeClass("blink");
+			roshIsDeadNode.addClass("disabled");
 		}
 	});
 
