@@ -135,7 +135,11 @@ textarea {
 }
 .menu {
   position: absolute;
-  background: url("../img/lines.png") no-repeat scroll 50% 50% / 30px 25px  transparent;
+  background: url("../img/lines.png");
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: 30px 25px;
+  background-position: 50% 50%;
   height: 55px;
   width: 70px;
   top: 0;
